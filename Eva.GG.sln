@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eva.GG.Client", "Eva.GG.Client\Eva.GG.Client.csproj", "{AB8560A4-9A2D-4DEC-9555-0541A0C86DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eva.GG.Client.Tests", "Eva.GG.Client.Tests\Eva.GG.Client.Tests.csproj", "{F1E159CE-27C9-459D-936D-2A1777CE9028}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB8560A4-9A2D-4DEC-9555-0541A0C86DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8560A4-9A2D-4DEC-9555-0541A0C86DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8560A4-9A2D-4DEC-9555-0541A0C86DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8560A4-9A2D-4DEC-9555-0541A0C86DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E159CE-27C9-459D-936D-2A1777CE9028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E159CE-27C9-459D-936D-2A1777CE9028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E159CE-27C9-459D-936D-2A1777CE9028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E159CE-27C9-459D-936D-2A1777CE9028}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0771E050-11D9-459E-B3F5-6DFA6716648E}
+	EndGlobalSection
+EndGlobal
