@@ -8,7 +8,7 @@ public class EvaGGClientTest
     {
         var client = new EvaGGClient(EvaGGClientConfiguration.Custom("http://localhost:3001/graphql", "8dziu8dza1nNJDzz823e"));
         var response = await client.ListGameItems();
-        Assert.AreEqual(response.listGameItems?.Count, 363);
+        Assert.AreEqual(response.listGameItems?.Count, 366);
     }
 
     [TestMethod]
@@ -47,8 +47,8 @@ public class EvaGGClientTest
         data.playerId = 1;
         data.classItemId = 1;
         data.primaryGunItemId = 2;
-        data.secondaryGunItemId = 22;
-        data.itemIdList = new List<int>() { 1, 2, 22 };
+        data.secondaryGunItemId = 23;
+        data.itemIdList = new List<int>() { 1, 2, 23 };
         variables.data = data;
 
         var response = await client.UpdatePlayerGearSetup(variables);
