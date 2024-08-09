@@ -1,14 +1,11 @@
 ﻿using System.Threading.Tasks;
 using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
-using GraphQL;
-using GraphQL.Client.Abstractions;
-using GraphQL.Validation;
 
 namespace Eva.GG.Client
 {
-    public class EvaGGClient
-    {
+	public class EvaGGClient
+	{
         public EvaGGClient(EvaGGClientConfiguration configuration)
         {
             Configuration = configuration;
@@ -20,49 +17,12 @@ namespace Eva.GG.Client
 
         public EvaGGClientConfiguration Configuration { get; }
 
-        private async Task<GraphQLResponse<TResponse>> Send<TResponse>(GraphQLRequest request)
+        public async Task<ListGameItemsGQL.Response> ListGameItems()
         {
-            var response = await _GraphQLClient.SendQueryAsync<TResponse>(request);
-
-            if (response.Errors?.Length > 0)
-            {
-                throw new ExecutionError(response.Errors[0].Message);
-            }
-
-
-            return response;
-        }
-
-
-        public async Task<ListAllGameItemsGQL.Response> ListGameItems()
-        {
-            var response = await Send<ListAllGameItemsGQL.Response>(ListAllGameItemsGQL.Request());
+            var response = await _GraphQLClient.SendQueryAsync<ListGameItemsGQL.Response>(ListGameItemsGQL.Request(new ListGameItemsGQL.Variables { gameId = 1 }));
 
             return response.Data;
         }
-
-        public async Task<UpdatePlayerGearSetupGQL.Response> UpdatePlayerGearSetup(UpdatePlayerGearSetupGQL.Variables variables)
-        {
-            var response = await Send<UpdatePlayerGearSetupGQL.Response>(UpdatePlayerGearSetupGQL.Request(variables));
-
-
-            return response.Data;
-        }
-
-        public async Task<UpdatePlayerProfileGQL.Response> UpdatePlayerProfile(UpdatePlayerProfileGQL.Variables variables)
-        {
-            var response = await Send<UpdatePlayerProfileGQL.Response>(UpdatePlayerProfileGQL.Request(variables));
-
-            return response.Data;
-        }
-
-        public async Task<GetPlayerByUserIdGQL.Response> GetPlayerByUserId(GetPlayerByUserIdGQL.Variables variables)
-        {
-            var response = await Send<GetPlayerByUserIdGQL.Response>(GetPlayerByUserIdGQL.Request(variables));
-
-            return response.Data;
-        }
-
     }
 }
 
