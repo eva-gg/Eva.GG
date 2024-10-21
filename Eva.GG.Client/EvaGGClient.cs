@@ -4,6 +4,7 @@ using GraphQL.Client.Serializer.Newtonsoft;
 using GraphQL;
 using GraphQL.Client.Abstractions;
 using GraphQL.Validation;
+using Eva.GG.Client.V2;
 
 namespace Eva.GG.Client
 {
@@ -56,9 +57,17 @@ namespace Eva.GG.Client
             return response.Data;
         }
 
-        public async Task<GetPlayerByUserIdGQL.Response> GetPlayerByUserId(GetPlayerByUserIdGQL.Variables variables)
+        public async Task<Eva.GG.Client.V2.GetPlayerByUserIdGQL.Response> GetPlayerByUserId(Eva.GG.Client.V2.GetPlayerByUserIdGQL.Variables variables)
         {
-            var response = await Send<GetPlayerByUserIdGQL.Response>(GetPlayerByUserIdGQL.Request(variables));
+            var response = await Send<Eva.GG.Client.V2.GetPlayerByUserIdGQL.Response>(Eva.GG.Client.V2.GetPlayerByUserIdGQL.Request(variables));
+            
+            return response.Data;
+        }
+
+
+        public async Task<GetItemListGQL.Response> GetItemList()
+        {
+            var response = await Send<GetItemListGQL.Response>(GetItemListGQL.Request());
 
             return response.Data;
         }

@@ -1,4 +1,6 @@
-﻿namespace Eva.GG.Client.Tests;
+﻿using Eva.GG.Client.V2;
+
+namespace Eva.GG.Client.Tests;
 
 [TestClass]
 public class EvaGGClientTest
@@ -8,17 +10,17 @@ public class EvaGGClientTest
     {
         var client = new EvaGGClient(EvaGGClientConfiguration.Custom("http://localhost:3001/graphql", "8dziu8dza1nNJDzz823e"));
         var response = await client.ListGameItems();
-        Assert.AreEqual(response.listGameItems?.Count, 366);
+        Assert.AreEqual(response.listGameItems?.Count, 385);
     }
 
     [TestMethod]
     public async Task GetPlayerByUserId()
     {
-        var client = new EvaGGClient(EvaGGClientConfiguration.Custom("http://localhost:3001/graphql", "8dziu8dza1nNJDzz823e"));
-        var variables = new GetPlayerByUserIdGQL.Variables();
-        variables.userId = 1;
+        var client = new EvaGGClient(EvaGGClientConfiguration.Custom("http://localhost:3101/graphql", "8dziu8dza1nNJDzz823e"));
+        var variables = new Eva.GG.Client.V2.GetPlayerByUserIdGQL.Variables();
+        variables.userId = "1";
         var response = await client.GetPlayerByUserId(variables);
-        Assert.AreEqual(response.getPlayerByUserId?.user?.id, 1);
+        Assert.AreEqual(response.getPlayerByUserId?.userId, "1");
     }
 
 
@@ -45,15 +47,23 @@ public class EvaGGClientTest
         var variables = new UpdatePlayerGearSetupGQL.Variables();
         var data = new UpdatePlayerGearSetupInput();
         data.playerId = 1;
-        data.classItemId = 1;
+        data.classItemId = 369;
         data.primaryGunItemId = 2;
         data.secondaryGunItemId = 23;
-        data.itemIdList = new List<int>() { 1, 2, 23 };
+        data.itemIdList = new List<int>() { 369, 2, 23 };
         variables.data = data;
 
         var response = await client.UpdatePlayerGearSetup(variables);
         Assert.AreEqual(response.updatePlayerGearSetup?.defaultClassItemId, variables.data?.classItemId);
         Assert.AreEqual(response.updatePlayerGearSetup?.defaultPrimaryGunItemId, variables.data?.primaryGunItemId);
         Assert.AreEqual(response.updatePlayerGearSetup?.defaultSecondaryGunItemId, variables.data?.secondaryGunItemId);
+    }
+
+    [TestMethod]
+    public async Task GetItemList()
+    {
+        var client = new EvaGGClient(EvaGGClientConfiguration.Custom("http://localhost:3101/graphql", "8dziu8dza1nNJDzz823e"));
+        var response = await client.GetItemList();
+        Assert.AreEqual(response.getItemList?.Count, 385);
     }
 }
