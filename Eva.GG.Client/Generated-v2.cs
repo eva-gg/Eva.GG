@@ -54,15 +54,15 @@ namespace Eva.GG.Client.V2 {
         public class ItemTypeSelection {
         
           [JsonProperty("id")]
-          public int id { get; set; }
+          public string id { get; set; }
           
           [JsonProperty("externalId")]
-          public int externalId { get; set; }
+          public string externalId { get; set; }
           
           public class ItemGroupTypeSelection {
           
             [JsonProperty("id")]
-            public int id { get; set; }
+            public string id { get; set; }
             
             [JsonProperty("name")]
             public string name { get; set; }
@@ -78,7 +78,7 @@ namespace Eva.GG.Client.V2 {
           public class ItemSkinTypeSelection {
           
             [JsonProperty("id")]
-            public int id { get; set; }
+            public string id { get; set; }
             
             [JsonProperty("name")]
             public string name { get; set; }
