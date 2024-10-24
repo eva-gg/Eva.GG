@@ -32,33 +32,19 @@ namespace Eva.GG.Client
 
             return response;
         }
-
-
-        public async Task<ListAllGameItemsGQL.Response> ListGameItems()
-        {
-            var response = await Send<ListAllGameItemsGQL.Response>(ListAllGameItemsGQL.Request());
-
-            return response.Data;
-        }
-
-        public async Task<UpdatePlayerGearSetupGQL.Response> UpdatePlayerGearSetup(UpdatePlayerGearSetupGQL.Variables variables)
-        {
-            var response = await Send<UpdatePlayerGearSetupGQL.Response>(UpdatePlayerGearSetupGQL.Request(variables));
-
-
-            return response.Data;
-        }
-
-        public async Task<UpdatePlayerProfileGQL.Response> UpdatePlayerProfile(UpdatePlayerProfileGQL.Variables variables)
-        {
-            var response = await Send<UpdatePlayerProfileGQL.Response>(UpdatePlayerProfileGQL.Request(variables));
-
-            return response.Data;
-        }
+       
 
         public async Task<GetPlayerByUserIdGQL.Response> GetPlayerByUserId(GetPlayerByUserIdGQL.Variables variables)
         {
             var response = await Send<GetPlayerByUserIdGQL.Response>(GetPlayerByUserIdGQL.Request(variables));
+            
+            return response.Data;
+        }
+
+
+        public async Task<GetItemListGQL.Response> GetItemList()
+        {
+            var response = await Send<GetItemListGQL.Response>(GetItemListGQL.Request());
 
             return response.Data;
         }
